@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http,Headers } from "@angular/http";
-import 'rxjs';
-//import 'rxjs/add/operator/toPromise';
+import { Http, Response, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class SignupService {
@@ -10,6 +10,7 @@ export class SignupService {
   constructor(private http : Http) { }
 
   get(url){
+    
     return this.http.get(this.base_url+url).map(res => res.json());
   }
   post(url , data){

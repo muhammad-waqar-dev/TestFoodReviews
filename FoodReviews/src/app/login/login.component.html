@@ -15,12 +15,48 @@
 
   <img src="avatar.png" class="avatar"> 
       <h1>Login Here</h1>
-          <form>
+      <!-- <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+        <table>
+            <tr>
+                <td>
+                    <mat-form-field class="demo-full-width">
+                        <input formControlName="Email" matInput placeholder="Email">
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
+                        </mat-error>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-form-field class="demo-full-width">
+                        <input type="password" formControlName="password" matInput placeholder="Password">
+                        <mat-error>
+                            <span *ngIf="!regiForm.get('password').valid && regiForm.get('password').touched">Please enter your password.</span>
+                        </mat-error>
+                    </mat-form-field>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="content-center">
+                    <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>
+                </td>
+            </tr>
+        </table>
+        *ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched"
+*ngIf="!regiForm.get('password').valid && regiForm.get('password').touched"
+    </form> -->
+          <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
           <p>Username</p>
-          <input type="text" name="username" placeholder="Enter Username">
+          <input formControlName="Email" 
+          
+           type="text" name="username" placeholder="Enter Username">
           <p>Password</p>
-          <input type="password" name="password" placeholder="Enter Password">
-          <input type="submit" name="submit" value="Login">
-          <a href="#">Forget Password</a>    
+          <input type="password" formControlName="password" 
+          
+           name="password" placeholder="Enter Password">
+          <input type="submit" [disabled]="!regiForm.valid" name="submit" value="Login">
+            
           </form>
       </div>

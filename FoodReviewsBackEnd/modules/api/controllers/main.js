@@ -49,25 +49,26 @@ main.home = function (req, res, next) {
 main.signup = function (req, res, next) {
    // const user = req.body;
     //console.log(user);
-     var hash = bcrypt.hashSync(req.body.Password, 8);
+    //  var hash = bcrypt.hashSync(req.body.Password, 8);
     var sql ="INSERT INTO signups (UserName,Email,Password,ConfirmPassword) VALUES ?";
     let userr = [
-        [req.body.UserName, req.body.Email, hash, req.body.ConfirmPassword]
+        [req.body.UserName, req.body.Email, req.body.Password,req.body.ConfirmPassword]
     ];
     db.db.query(sql, [userr], function (err, user) {
     if (err) throw err;
     // console.log(user);
     // create a token
-    var token = jwt.sign({ id: user.insertId }, "mySecret", {
-        expiresIn: 86400 // expires in 24 hours
-      });
-    res.send({ status:200,auth: true, token: token });
+    // var token = jwt.sign({ id: user.insertId }, "mySecret", {
+    //     expiresIn: 86400 // expires in 24 hours
+    //   });
+    //res.send({ status:200,auth: true, token: token });
+res.send(user)
   });
 }
 
 main.login = function (req, res, next) {
 
-    var sql_query = "SELECT * FROM signups WHERE email=?";
+    var sql_query = "SELECT * FROM signups WHERE Email=?";
     let emId = [req.body.Email];
     db.db.query(sql_query ,[emId] , (err , result)=> {
         if (err) return res.status(500).send('Error on the server.');

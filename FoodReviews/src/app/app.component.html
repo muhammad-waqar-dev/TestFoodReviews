@@ -4,5 +4,19 @@
    <main-hero></main-hero> 
   <app-home></app-home>
 </div> -->
-<app-home></app-home>
+<!-- <app-home></app-home> -->
+<mat-toolbar color="primary">    
+  <img class="mdc-image-list__image" src="../assets/images/logo.png">
+  <span class="demo-toolbar"></span>
+  <span>Foodreviews
+  </span>  
+  <span class="example-spacer"></span>
+
+  <a mat-button routerLink="/Login">Login</a> 
+  <a mat-button routerLink="/signup">signup</a>  
+    
+</mat-toolbar>
+<div>
+  <router-outlet></router-outlet>
+</div>
 

@@ -1,19 +1,133 @@
-<div class="login-box">
+
+<!-- *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched"
+*ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched"
+*ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched" -->
+<!-- <div class="login-box">
 
     <img src="avatar.png" class="avatar"> 
         <h1>SignUp Here</h1>
-            <form>
+            <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+                
             <p>Username</p>
-            <input type="text" name="username" placeholder="Enter Username">
+            <input formControlName="UserName"
+
+             type="text" placeholder="Enter Username">
             <p>Email</p>
-            <input type="text" name="email" placeholder="Enter Email">
+            <input formControlName="Email"
+            
+            type="text" placeholder="Enter Email">
             <p>Password</p>
-            <input type="password" name="password" placeholder="Enter Password">
+            <input formControlName="Password"
+            
+            type="password" placeholder="Enter Password">
+            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">enter pass</span>
             <p>Confirm Password</p>
             <input type="password" name="confirmpassword" placeholder="Enter Confirm Password">
-            <input type="submit" name="submit" value="submit">
-            <a href="#">Forget Password</a>    
+
+            <input             [disabled]="!regiForm.valid || IsAccepted==0"
+            type="submit" value="submit">
+              
             </form>
         
         
-        </div>
+        </div> -->
+
+<!-- Card container that binds all togather -->
+
+
+<mat-card>
+  <!-- Title of an Card -->
+  <mat-card-title>
+      signup
+  </mat-card-title>
+
+  <!-- Actual content starts from here -->
+  <mat-card-content>
+      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+          <table>
+              <tr>
+                  <td>
+                      <mat-form-field class="demo-full-width">
+                          <input formControlName="UserName" matInput placeholder="UserName">
+                      </mat-form-field>
+                      <mat-error>
+                          <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched">Please enter UserName !!!</span>
+                      </mat-error>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <mat-form-field class="demo-full-width">
+                          <input formControlName="Email" matInput placeholder="Email">
+                          <!-- <mat-hint>use like : demo@demo.com</mat-hint>   -->
+                          <mat-error>
+                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
+                          </mat-error>
+                      </mat-form-field>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <mat-form-field class="demo-full-width">
+                          <input type="password" formControlName="Password" matInput placeholder="Password">
+                      </mat-form-field>
+                      <mat-error>
+                          <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">Please enter proper password !!!</span>
+                      </mat-error>
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <mat-form-field class="demo-full-width">
+                          <input type="ConfirmPassword" formControlName="ConfirmPassword" matInput placeholder="ConfirmPassword">
+                      </mat-form-field>
+                      <mat-error>
+                          <span *ngIf="!regiForm.get('ConfirmPassword').valid && regiForm.get('ConfirmPassword').touched">Please enter proper ConfirmPassword !!!</span>
+                      </mat-error>
+                  </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                    <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>
+                </td>
+            </tr>
+              <tr>
+                  <td colspan="2" class="content-center">
+                      <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>
+                  </td>
+              </tr>
+              <tr>
+                  <td></td>
+              </tr>
+          </table>
+      </form>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="login-box">
+            <form #f="ngForm" (ngSubmit)="onFormSubmit(f.value)">
+                <div class="form-group">
+                    <label for="UserName">user name:</label>
+                    <input type="UserName" name="UserName" ngModel class="form-control" id="UserName">
+                  </div>
+                <div class="form-group">
+                  <label for="Email">Email address:</label>
+                  <input type="Email" name="Email" ngModel class="form-control" id="Email">
+                </div>
+                <div class="form-group">
+                  <label for="Password">Password:</label>
+                  <input type="Password" name="Password" ngModel class="form-control" id="Password">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> 
+        </div> -->
