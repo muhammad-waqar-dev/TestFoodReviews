@@ -1,21 +1,77 @@
-<!-- 
-<div class="container-fluid">
-    <h1 class="text-center text-secondary">{{title}}</h1> 
-   <main-hero></main-hero> 
-  <app-home></app-home>
-</div> -->
-<!-- <app-home></app-home> -->
-<mat-toolbar color="primary">    
-  <img class="mdc-image-list__image" src="../assets/images/logo.png">
-  <span class="demo-toolbar"></span>
-  <span>Foodreviews
-  </span>  
+<div class="nav">
+ <mat-toolbar color="white">    
+  <img class="mdc-image-list__image" routerLink="/"
+  src="../assets/images/TA_logo_newGreen_primary.svg" width="150px" >
   <span class="example-spacer"></span>
+  
+<!--search-->
+<button mat-icon-button border="0pc solid white" >
+    <mat-icon aria-label="Example icon-button with a heart icon">search</mat-icon>
+</button>
+<!-- menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/login">
+        <mat-icon>how_to_reg</mat-icon>
+        <a mat-button ><span >Login</span></a>
+      </button>
+      <button mat-menu-item routerLink="/signup">
+        <mat-icon >person</mat-icon>
+        <a mat-button ><span >Signup</span></a>
+      </button>
+    </mat-menu>
+</mat-toolbar> 
 
-  <a mat-button routerLink="/Login">Login</a> 
-  <a mat-button routerLink="/signup">signup</a>  
-    
-</mat-toolbar>
+</div>
+
+  <div class="home">
+    <img src="../assets/images/home.jpg"/>
+</div>
+<!-- <div class="pp">
+<mat-card #card="matCard" >
+    <img mat-card-item src="../assets/images/icons_restaurants_tl_2x.png" alt=""/>
+  <img mat-card-item src="../assets/images/icon_reviews_2x.png" alt=""/>
+  <img mat-card-item src="../assets/images/icon_bookRestaurants_tl_2x.png" alt=""/>
+</mat-card>
+</div> -->
+
+<!-- <section>
+  <div class="left">
+    <img class="avatar" src="../assets/images/icons_restaurants_tl_2x.png" /> 
+  </div>
+  <div class="left">
+    <img class="avatar" src="../assets/images/icon_reviews_2x.png" /> 
+  </div>
+  <div class="left">
+    <img class="avatar" src="../assets/images/icon_bookRestaurants_tl_2x.png" /> 
+  </div>
+ 
+</section> -->
+
+<div class="car">
+<div class="card-1">
+
+    <img class="avatar" src="../assets/images/icons_restaurants_tl_2x.png" /> 
+        
+            
+        </div>
+        <div class="card-1">
+
+          <img class="avatar" src="../assets/images/icon_reviews_2x.png" /> 
+              
+                  
+              </div>
+              <div class="card-1">
+
+                <img class="avatar" src="../assets/images/icon_bookRestaurants_tl_2x.png" /> 
+                    
+                        
+                    </div>
+                  </div>
+      
+   
 <div>
   <router-outlet></router-outlet>
 </div>

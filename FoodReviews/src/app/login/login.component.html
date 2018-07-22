@@ -1,52 +1,8 @@
-<!-- <div></div>
 
-<form action="">
-    
-  <label for=""></label>
-  <input type="text" name="" id="" placeholder="email" class="email">
-    
-  <label for=""></label>
-  <input type="password" name="" id="" placeholder="password" class="pass">
-    
-  <button type="submit">login to your account</button>
-    
-</form> -->
 <div class="login-box">
 
-  <img src="avatar.png" class="avatar"> 
+  <img class="avatar" src="../../assets/images/avatar.png" /> 
       <h1>Login Here</h1>
-      <!-- <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
-        <table>
-            <tr>
-                <td>
-                    <mat-form-field class="demo-full-width">
-                        <input formControlName="Email" matInput placeholder="Email">
-                        <mat-error>
-                            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
-                        </mat-error>
-                    </mat-form-field>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <mat-form-field class="demo-full-width">
-                        <input type="password" formControlName="password" matInput placeholder="Password">
-                        <mat-error>
-                            <span *ngIf="!regiForm.get('password').valid && regiForm.get('password').touched">Please enter your password.</span>
-                        </mat-error>
-                    </mat-form-field>
-
-                </td>
-            </tr>
-            <tr>
-                <td class="content-center">
-                    <button mat-raised-button color="accent" [disabled]="!regiForm.valid">Submit</button>
-                </td>
-            </tr>
-        </table>
-        *ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched"
-*ngIf="!regiForm.get('password').valid && regiForm.get('password').touched"
-    </form> -->
           <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
           <p>Username</p>
           <input formControlName="Email" 
@@ -60,3 +16,4 @@
             
           </form>
       </div>
+  
