@@ -4,15 +4,15 @@
   <img class="avatar" src="../../assets/images/avatar.png" /> 
       <h1>Login Here</h1>
           <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
-          <p>Username</p>
+          <p>Email</p>
           <input formControlName="Email" 
           
-           type="text" name="username" placeholder="Enter Username">
+           type="text" name="email" placeholder="Enter User Email">
           <p>Password</p>
           <input type="password" formControlName="password" 
           
            name="password" placeholder="Enter Password">
-          <input type="submit" [disabled]="!regiForm.valid" name="submit" value="Login">
+          <input routerLink="/user" type="submit" [disabled]="!regiForm.valid" name="submit" value="Login">
             
           </form>
       </div>

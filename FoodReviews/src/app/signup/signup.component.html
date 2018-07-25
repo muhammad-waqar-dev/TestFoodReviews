@@ -2,16 +2,17 @@
 <!-- *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched"
 *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched"
 *ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched" -->
-<!-- <div class="login-box">
 
-    <img src="avatar.png" class="avatar"> 
+<div class="login-box">
+
+    <img src="../../assets/images/avatar.png" class="avatar"> 
         <h1>SignUp Here</h1>
             <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
                 
-            <p>Username</p>
+            <p>UserName</p>
             <input formControlName="UserName"
 
-             type="text" placeholder="Enter Username">
+             type="text" placeholder="Enter UserName">
             <p>Email</p>
             <input formControlName="Email"
             
@@ -21,27 +22,43 @@
             
             type="password" placeholder="Enter Password">
             <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">enter pass</span>
-            <p>Confirm Password</p>
-            <input type="password" name="confirmpassword" placeholder="Enter Confirm Password">
+         
+                <p class="Utype" >User Type:</p>
+                <div class="form-check-inline">
+                    <label class="form-check-label" for="radio1">
+                      <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Normal User
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <label class="form-check-label" for="radio2">
+                      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Restaurant
+                    </label>
+                  </div>
+                <!-- <div class="rbtn">
+                <input formControlName="Usertype"  type="radio" checked >Normal User
+                <input formControlName="Usertype"  type="radio"  >Reataurant</div> -->
 
-            <input             [disabled]="!regiForm.valid || IsAccepted==0"
-            type="submit" value="submit">
-              
+                <p >Upload Your Profile Picture</p>
+            <div class="form-group">
+                <input type="file" class="form-control-file" (change)="onFileChange($event)" #fileInput>
+            </div>
+         <input routerLink="/user" [disabled]="!regiForm.valid" type="submit" value="submit"/>
+    
             </form>
         
         
-        </div> -->
+        </div>
 
 <!-- Card container that binds all togather -->
 
 
-<mat-card>
-  <!-- Title of an Card -->
+<!-- <mat-card>
+  
   <mat-card-title>
       signup
   </mat-card-title>
 
-  <!-- Actual content starts from here -->
+  
   <mat-card-content>
       <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
           <table>
@@ -59,7 +76,7 @@
                   <td>
                       <mat-form-field class="demo-full-width">
                           <input formControlName="Email" matInput placeholder="Email">
-                          <!-- <mat-hint>use like : demo@demo.com</mat-hint>   -->
+                          
                           <mat-error>
                               <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
                           </mat-error>
@@ -102,7 +119,7 @@
           </table>
       </form>
   </mat-card-content>
-</mat-card>
+</mat-card> -->
 
 
 

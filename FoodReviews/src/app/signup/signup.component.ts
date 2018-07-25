@@ -9,12 +9,15 @@ import { FormBuilder, FormGroup, Validators ,FormsModule,NgForm } from '@angular
 })
 export class SignupComponent implements OnInit {
 
+
   regiForm: FormGroup; 
   UserName : String;
   Email:String;
   Password:String; 
   ConfirmPassword:String;
   IsAccepted:Number = 0;
+
+ 
 
   constructor(private fb: FormBuilder , private service: SignupService , private router: Router) {
    // To initialize FormGroup  
