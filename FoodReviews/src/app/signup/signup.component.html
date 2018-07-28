@@ -1,150 +1,47 @@
 
-<!-- *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched"
-*ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched"
-*ngIf="!regiForm.get('Name').valid && regiForm.get('Name').touched" -->
-
 <div class="login-box">
 
     <img src="../../assets/images/avatar.png" class="avatar"> 
         <h1>SignUp Here</h1>
             <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
                 
-            <p>UserName</p>
-            <input formControlName="UserName"
-
-             type="text" placeholder="Enter UserName">
+            <p>UserName</p>     
+            <input formControlName="UserName" type="text" placeholder="Enter UserName" >
+            <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched" style="color: red">Please enter UserName !!!</span>
+            
+           
             <p>Email</p>
-            <input formControlName="Email"
+            <input formControlName="Email" type="text" placeholder="Enter Email">
+            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched" style="color: red">Enter proper Email !!!</span>
             
-            type="text" placeholder="Enter Email">
             <p>Password</p>
-            <input formControlName="Password"
-            
-            type="password" placeholder="Enter Password">
-            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">enter pass</span>
+            <input formControlName="Password" type="Password" placeholder="Enter Password">
+            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched" style="color: red">enter pass</span>
          
-                <p class="Utype" >User Type:</p>
+                <p class="utype" >User Type</p>
+                <div class="utyperbtn">
                 <div class="form-check-inline">
                     <label class="form-check-label" for="radio1">
-                      <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Normal User
+                      <input formControlName="UserType" type="radio" class="form-check-input" id="radio1" value="Normal User" >Normal User
                     </label>
                   </div>
                   <div class="form-check-inline">
                     <label class="form-check-label" for="radio2">
-                      <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Restaurant
+                      <input formControlName="UserType" type="radio" class="form-check-input" id="radio2" value="Restaurant">Restaurant
                     </label>
                   </div>
-                <!-- <div class="rbtn">
-                <input formControlName="Usertype"  type="radio" checked >Normal User
-                <input formControlName="Usertype"  type="radio"  >Reataurant</div> -->
-
-                <p >Upload Your Profile Picture</p>
-            <div class="form-group">
-                <input type="file" class="form-control-file" (change)="onFileChange($event)" #fileInput>
+                </div>
+                <span *ngIf="!regiForm.get('UserType').valid && regiForm.get('UserType').touched" style="color: red">enter user type</span>
+                
+                <p class="utype">Upload Your Profile</p>
+            <div class="ufile">
+                <input type="file" class="form-control-file" formControlName="Profile"  #fileInput >
+                
             </div>
-         <input routerLink="/user" [disabled]="!regiForm.valid" type="submit" value="submit"/>
+            <input [disabled]="!regiForm.valid " type="submit" value="submit"/>
     
             </form>
         
         
         </div>
 
-<!-- Card container that binds all togather -->
-
-
-<!-- <mat-card>
-  
-  <mat-card-title>
-      signup
-  </mat-card-title>
-
-  
-  <mat-card-content>
-      <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
-          <table>
-              <tr>
-                  <td>
-                      <mat-form-field class="demo-full-width">
-                          <input formControlName="UserName" matInput placeholder="UserName">
-                      </mat-form-field>
-                      <mat-error>
-                          <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched">Please enter UserName !!!</span>
-                      </mat-error>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <mat-form-field class="demo-full-width">
-                          <input formControlName="Email" matInput placeholder="Email">
-                          
-                          <mat-error>
-                              <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched">Enter proper Email !!!</span>
-                          </mat-error>
-                      </mat-form-field>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <mat-form-field class="demo-full-width">
-                          <input type="password" formControlName="Password" matInput placeholder="Password">
-                      </mat-form-field>
-                      <mat-error>
-                          <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched">Please enter proper password !!!</span>
-                      </mat-error>
-                  </td>
-              </tr>
-              <tr>
-                  <td>
-                      <mat-form-field class="demo-full-width">
-                          <input type="ConfirmPassword" formControlName="ConfirmPassword" matInput placeholder="ConfirmPassword">
-                      </mat-form-field>
-                      <mat-error>
-                          <span *ngIf="!regiForm.get('ConfirmPassword').valid && regiForm.get('ConfirmPassword').touched">Please enter proper ConfirmPassword !!!</span>
-                      </mat-error>
-                  </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                    <mat-slide-toggle formControlName="IsAccepted" (change)="onChange($event)">Accept Terms & Conditions</mat-slide-toggle>
-                </td>
-            </tr>
-              <tr>
-                  <td colspan="2" class="content-center">
-                      <button mat-raised-button color="accent" [disabled]="!regiForm.valid || IsAccepted==0">Submit</button>
-                  </td>
-              </tr>
-              <tr>
-                  <td></td>
-              </tr>
-          </table>
-      </form>
-  </mat-card-content>
-</mat-card> -->
-
-
-
-
-
-
-
-
-
-
-
-        <!-- <div class="login-box">
-            <form #f="ngForm" (ngSubmit)="onFormSubmit(f.value)">
-                <div class="form-group">
-                    <label for="UserName">user name:</label>
-                    <input type="UserName" name="UserName" ngModel class="form-control" id="UserName">
-                  </div>
-                <div class="form-group">
-                  <label for="Email">Email address:</label>
-                  <input type="Email" name="Email" ngModel class="form-control" id="Email">
-                </div>
-                <div class="form-group">
-                  <label for="Password">Password:</label>
-                  <input type="Password" name="Password" ngModel class="form-control" id="Password">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form> 
-        </div> -->

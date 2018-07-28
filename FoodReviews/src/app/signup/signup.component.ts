@@ -14,7 +14,8 @@ export class SignupComponent implements OnInit {
   UserName : String;
   Email:String;
   Password:String; 
-  ConfirmPassword:String;
+  UserType:String;
+  Profile:string;
   IsAccepted:Number = 0;
 
  
@@ -25,7 +26,8 @@ export class SignupComponent implements OnInit {
     'UserName' : [null, Validators.required],  
     'Email':[null, Validators.compose([Validators.required,Validators.email])], 
     'Password' : [null, Validators.required],  
-    'ConfirmPassword' : [null, Validators.required],  
+    'UserType' : [null, Validators.required],  
+    'Profile' : [null, Validators.required], 
     'IsAccepted':[null]
   }); 
    }

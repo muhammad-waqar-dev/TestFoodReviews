@@ -42,7 +42,7 @@ mat-toolbar-row {
 
 .login-box{
     width: 340px;
-    height: 540px;
+    height: 560px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     top: 55%;
@@ -65,7 +65,7 @@ mat-toolbar-row {
 }
 h1{
     margin: 0;
-    padding: 0 0 20px;
+    padding: 0 0 ;
     text-align: center;
     font-size: 22px;
 }
@@ -115,5 +115,24 @@ h1{
 {
     color: #39dc79;
 }
+.login-box p[class="utype"]{
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+}
+.utyperbtn{
 
-  
+    color:#ddd;
+    font-size: 16px;
+    margin: 0px 0px 10px 0px;
+    border-bottom: 2px solid #fff;
+    
+}
+.ufile{
+    margin: 0px 0px 10px 0px;
+    border-bottom: 2px solid #fff;
+}
+.login-box input[type="file"]
+{
+
+}
+
