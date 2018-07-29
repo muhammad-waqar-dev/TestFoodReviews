@@ -19,14 +19,14 @@ regiForm: FormGroup;
    
    createForm() {
     this.regiForm = this.fb.group({
-    'UserName' : [null, Validators.required],  
-    'Email':[null, Validators.compose([Validators.required,Validators.email])], 
-    'Password' : [null, Validators.required],  
-    'CountryName' : [null, Validators.required], 
-    'CityName' : [null, Validators.required], 
-    'PhoneNumber' : [null,[Validators.required, Validators.min(1111111111), Validators.max(9999999999999)]], 
-    'UserType' : [null, Validators.required],  
-    "userImage": [null, Validators.required]
+    UserName : [null, Validators.required],  
+    Email:[null, Validators.compose([Validators.required,Validators.email])], 
+    Password : [null, Validators.required],  
+    CountryName : [null, Validators.required], 
+    CityName : [null, Validators.required], 
+    PhoneNumber : [null,[Validators.required, Validators.min(1111111111), Validators.max(9999999999999)]], 
+    UserType : [null, Validators.required],  
+    userImage: [null, Validators.required]
     });
   }
 
@@ -37,6 +37,8 @@ regiForm: FormGroup;
    get CityName() { return this.regiForm.get('CityName') }
    get PhoneNumber() { return this.regiForm.get('PhoneNumber') }
    get UserType() { return this.regiForm.get('UserType') }
+
+
 // get file(){ return this.signupForm.get('file')}
   // set userAvatar(val:any){ this.userAvatar = val; }  
 
@@ -53,7 +55,6 @@ regiForm: FormGroup;
 
   private prepareSave(): any {
     let input = new FormData();
-    // This can be done a lot prettier; for example automatically assigning values by looping through `this.form.controls`, but we'll keep it as simple as possible here
     input.append('UserName', this.regiForm.get('UserName').value);
     input.append('Email', this.regiForm.get('Email').value);
     input.append('Password', this.regiForm.get('Password').value);
@@ -73,13 +74,13 @@ regiForm: FormGroup;
      this.service.post('signup' ,formModel).subscribe(res =>{
        if(res){
           //localStorage.setItem('Token',res.token);
-          //localStorage.setItem('signups',formModel.Email);
+          localStorage.setItem('signups',formModel.Email);
           if(formModel.UserType === "NormalUser"){
             this.router.navigate(['user']);
           }else{
             this.router.navigate(['restaurant']);   
           }
-         
+          this.router.navigate(['Login']);
           //console.log(formModel)
        }
      });

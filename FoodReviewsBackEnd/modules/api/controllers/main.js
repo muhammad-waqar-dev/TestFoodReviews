@@ -7,6 +7,7 @@ var responseHelper = require("../../../helpers/response");
 var db = require('../../../index');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+const multer = require('multer');
 
 var main = {
     title: "Hello World",

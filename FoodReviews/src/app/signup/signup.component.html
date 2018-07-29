@@ -3,7 +3,7 @@
 
     <img src="../../assets/images/avatar.png" class="avatar"> 
         <h1>SignUp Here</h1>
-            <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)">
+            <form [formGroup]="regiForm" (ngSubmit)="onFormSubmit(regiForm)" enctype="multipart/form-data">
                 
             <p>UserName</p>     
             <input formControlName="UserName" type="text" placeholder="Enter UserName" >

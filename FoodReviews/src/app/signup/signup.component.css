@@ -45,7 +45,7 @@ mat-toolbar-row {
     height: 750px;
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
-    top: 55%;
+    top: 65%;
     left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
