@@ -14,7 +14,7 @@ var main = {
 }
 
 function validateSignup(body) {
-    if (body.UserName != null && body.Email != null && body.Password != null && body.UserType !=null && body.Profile !=null) {
+    if (body.UserName != null && body.Email != null && body.Password != null && body.CountryName !=null && body.CityName !=null && body.PhoneNumber !=null && body.UserType !=null ) {
         return true;
     }   ///*** Add Email regex here as well */
 
@@ -50,9 +50,9 @@ main.signup = function (req, res, next) {
    const user = req.body;
     //console.log(user);
      var hash = bcrypt.hashSync(req.body.Password, 8);
-    var sql ="INSERT INTO signups (UserName,Email,Password,UserType,Profile) VALUES ?";
+    var sql ="INSERT INTO signups (UserName,Email,Password,CountryName,CityName,PhoneNumber,UserType,userAvatar) VALUES ?";
     let userr = [
-        [req.body.UserName, req.body.Email, hash,req.body.UserType,req.body.Profile]
+        [req.body.UserName, req.body.Email, hash,req.body.CountryName,req.body.CityName,req.body.PhoneNumber,req.body.UserType,req.file.path]
     ];
     db.db.query(sql, [userr], function (err, user) {
     if (err) throw err;
@@ -61,8 +61,8 @@ main.signup = function (req, res, next) {
     // var token = jwt.sign({ id: user.insertId }, "mySecret", {
     //     expiresIn: 86400 // expires in 24 hours
     //   });
-    res.send({ status:200,auth: true, token: token }); ///
-res.send(user)
+    res.send({ status:200,auth: true }); ///
+//res.send(user)
   });
 }
 
@@ -74,7 +74,7 @@ main.login = function (req, res, next) {
         if (err) return res.status(500).send('Error on the server.');
         if (!result) return res.status(404).send('No user found.');
          console.log(req.body.password);
-         console.log(result[0].password);
+         console.log(result);
         //result.toString();
         var passwordIsValid = bcrypt.compareSync(req.body.Password, result[0].Password);
         // console.log(passwordIsValid);

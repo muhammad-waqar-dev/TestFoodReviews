@@ -17,10 +17,19 @@ module.exports = {
       Password: {
         type: Sequelize.STRING
       },
+      CountryName: {
+        type: Sequelize.STRING
+      },
+      CityName: {
+        type: Sequelize.STRING
+      },
+      PhoneNumber: {
+        type: Sequelize.BIGINT
+      },
       UserType: {
         type: Sequelize.STRING
       },
-      Profile: {
+      userAvatar: {
         type: Sequelize.STRING
       },
       createdAt: {

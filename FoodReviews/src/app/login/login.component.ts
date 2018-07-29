@@ -29,11 +29,12 @@ export class LoginComponent implements OnInit {
   {  
     console.log(form.value); 
      this.service.authenticateUser('login' ,form.value).subscribe(res =>{
-       if(res.status == 200){
-          localStorage.setItem('Token',res.token);
-          localStorage.setItem('signups',form.value.Email);
+       if(res){
+          //localStorage.setItem('Token',res.token);
+          //localStorage.setItem('signups',form.value.Email);
           this.router.navigate(['home']);
           // console.log(form.value);
+        
        }
      });
   }

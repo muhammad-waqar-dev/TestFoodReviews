@@ -7,17 +7,29 @@
                 
             <p>UserName</p>     
             <input formControlName="UserName" type="text" placeholder="Enter UserName" >
-            <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched" style="color: red">Please enter UserName !!!</span>
+            <span *ngIf="!regiForm.get('UserName').valid && regiForm.get('UserName').touched" style="color: red">Please enter UserName !</span>
             
            
             <p>Email</p>
             <input formControlName="Email" type="text" placeholder="Enter Email">
-            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched" style="color: red">Enter proper Email !!!</span>
+            <span *ngIf="!regiForm.get('Email').valid && regiForm.get('Email').touched" style="color: red">Enter proper Email !</span>
             
             <p>Password</p>
             <input formControlName="Password" type="Password" placeholder="Enter Password">
-            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched" style="color: red">enter pass</span>
-         
+            <span *ngIf="!regiForm.get('Password').valid && regiForm.get('Password').touched" style="color: red">Enter proper password</span>
+         <div>
+            <p>Country Name</p>     
+            <input formControlName="CountryName" type="text" placeholder="Enter CountryName" >
+            <span *ngIf="!regiForm.get('CountryName').valid && regiForm.get('CountryName').touched" style="color: red">Please enter CountryName !!!</span>
+            
+            <p>City Name</p>     
+            <input formControlName="CityName" type="text" placeholder="Enter CityName" >
+            <span *ngIf="!regiForm.get('CityName').valid && regiForm.get('CityName').touched" style="color: red">Please enter CityName !</span>
+        </div>
+            <p>Phone Number</p>     
+            <input formControlName="PhoneNumber" type="number" placeholder="Enter PhoneNumber" >
+            <span *ngIf="!regiForm.get('PhoneNumber').valid && regiForm.get('PhoneNumber').touched" style="color: red">Please enter PhoneNumber !</span>
+            
                 <p class="utype" >User Type</p>
                 <div class="utyperbtn">
                 <div class="form-check-inline">
@@ -35,7 +47,7 @@
                 
                 <p class="utype">Upload Your Profile</p>
             <div class="ufile">
-                <input type="file" class="form-control-file" formControlName="Profile"  #fileInput >
+                <input type="file" class="form-control-file" (change)="onFileChange($event)"  #fileInput >
                 
             </div>
             <input [disabled]="!regiForm.valid " type="submit" value="submit"/>

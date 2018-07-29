@@ -4,9 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     UserName: DataTypes.STRING,
     Email: DataTypes.STRING,
     Password: DataTypes.STRING,
+    CountryName: DataTypes.STRING,
+    CityName: DataTypes.STRING,
+    PhoneNumber: DataTypes.BIGINT,
     UserType: DataTypes.STRING,
-    Profile: DataTypes.STRING
-  }, {});
+    userAvatar: DataTypes.STRING
+  }, {})
   signups.associate = function(models) {
     // associations can be defined here
   };
